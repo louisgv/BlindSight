@@ -1,46 +1,50 @@
-<FrameLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:opencv="http://schemas.android.com/apk/res-auto"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context=".Stream"
-  >
+<ScrollView android:id="@+id/content"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
   <FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Stream"
+    >
 
-    <org.opencv.android.JavaCameraView
-      android:id="@+id/OpenCVCam"
+    <FrameLayout
 
       android:layout_width="match_parent"
 
       android:layout_height="match_parent"
+      >
 
-      android:visibility="gone"
+      <org.opencv.android.JavaCameraView
+        android:id="@+id/OpenCVCam"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        opencv:camera_id="any"
+        opencv:show_fps="false"
+        />
+    </FrameLayout>
 
-      opencv:camera_id="any"
-
-      opencv:show_fps="false"
+    <ImageButton
+      android:id="@+id/imgClose"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="end|top"
+      android:background="@android:drawable/ic_menu_close_clear_cancel"
+      android:padding="20dp"
       />
+
+    <Switch
+      android:id="@+id/switchCvMode"
+      android:layout_width="78dp"
+      android:layout_height="38dp"
+      android:layout_gravity="start|top"
+      />
+
   </FrameLayout>
-
-  <ImageButton
-    android:id="@+id/imgClose"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="end|top"
-    android:background="@android:drawable/ic_menu_close_clear_cancel"
-    android:padding="20dp"
-    />
-
-  <Switch
-    android:id="@+id/switchCvMode"
-    android:layout_width="78dp"
-    android:layout_height="38dp"
-    android:layout_gravity="start|top"
-    />
-
-</FrameLayout>
-
+</ScrollView>
